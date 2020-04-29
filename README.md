@@ -2,15 +2,15 @@
 
 A toolset image for managing Kubernetes deployments on AWS EKS.
 
-### Build status
-[![CircleCI](https://circleci.com/gh/appvia/docker-aws-eks-toolset.svg?style=svg)](https://circleci.com/gh/appvia/docker-aws-eks-toolset)
-[![Docker Repository on Quay](https://quay.io/repository/appvia/aws-eks-toolset/status "Docker Repository on Quay")](https://quay.io/repository/appvia/aws-eks-toolset)
-
 ## Overview
 This container provides the following utilities to assist in interacting with a Kubernetes Cluster build on EKS.
 - [AWS CLI](https://docs.aws.amazon.com/cli/index.html)
 - [aws-iam-authenticator](https://docs.aws.amazon.com/eks/latest/userguide/install-aws-iam-authenticator.html)
 - [Kubectl](https://kubernetes.io/docs/reference/kubectl/overview/)
+- [Helm](https://helm.sh/)
+- [kubens](https://github.com/ahmetb/kubectx)
+- [kubectx](https://github.com/ahmetb/kubectx)
+
 
 ## Build
 
@@ -24,6 +24,10 @@ You must supply the following environment variables when running the image:
 * AWS_ACCESS_KEY_ID
 * AWS_SECRET_ACCESS_KEY
 
+
+TODO:
+* Add option to use aws profile and mount ~/.aws for local development
+
 It will automatically authenticate to the cluster and test connectivity.
 
 ```bash
@@ -32,7 +36,7 @@ docker run -it \
   -e AWS_REGION=eu-west-2 \
   -e AWS_SECRET_ACCESS_KEY=XXXXXXXXX \
   -e AWS_ACCESS_KEY_ID=XXXXXXXXX \
-  quay.io/appvia/aws-eks-toolset
+  businessoffashion/aws-eks-toolset
 ```
 
 Output:
